@@ -355,7 +355,9 @@ public class MainActivity extends Activity {
         try {
             YtDlp.executeAsync(request, (p, eta, line) -> {
                 handler.post(() -> {
-                    int percent = Math.max(0, Math.min(100, p));
+
+int percent = Math.max(0, Math.min(100, Math.round(p)));
+
                     progressBar.setProgress(percent);
                     progressText.setText(String.format(
                         Locale.US, "%d%%", percent));
